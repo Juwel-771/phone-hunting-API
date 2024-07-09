@@ -12,6 +12,13 @@ const display = (phones) => {
     // clear after every search
     phoneContainer.innerHTML = "";
     // console.log(phones)
+    const showAll = document.getElementById("show-all_button");
+    if(phones.length > 12){
+        showAll.classList.remove("hidden")
+    }else{
+        showAll.classList.add("hidden")
+    }
+    phones = phones.slice(0,12);
     phones.forEach(phone => {
         console.log(phone);
         const phoneCard = document.createElement("div");
