@@ -37,14 +37,24 @@ const display = (phones) => {
         `
         phoneContainer.appendChild(phoneCard)
     });
+    loadingSpin(false);
 }
 
 // Search Option Handle
 const handleSearch = () => {
+    loadingSpin(true);
     const searchField = document.getElementById("search-field");
     const searchValue = searchField.value;
     loadData(searchValue);
 }
 
+const loadingSpin = (isLoading) => {
+    const loadSpin = document.getElementById("load-spin");
+    if(isLoading){
+        loadSpin.classList.remove("hidden");
+    }else{
+        loadSpin.classList.add("hidden");
+    }
+}
 
 loadData();
