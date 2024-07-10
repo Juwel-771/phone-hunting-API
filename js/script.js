@@ -24,7 +24,7 @@ const display = (phones, isShowAll) => {
         phones = phones.slice(0,12);
     }
     phones.forEach(phone => {
-        console.log(phone);
+        // console.log(phone);
         const phoneCard = document.createElement("div");
         phoneCard.classList = `card bg-gray-100 w-96 p-4 shadow-xl border-2 border-violet-800`;
         phoneCard.innerHTML = `
@@ -72,7 +72,29 @@ const handleShowDetails = async (id)=>{
     // console.log("Show button clicked", id);
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
     const data = await res.json();
-    console.log(data);
+    const singlePhoneData = data.data
+    // console.log(singlePhoneData);
+    showDetailsModal(singlePhoneData);
 }
 
+// Show phone details 
+const showDetailsModal = (phone) => {
+    console.log(phone);
+    const singlePhoneName = document.getElementById("single-phone-name");
+    singlePhoneName.innerText = phone.name;
+    const showDetailsContainer = document.getElementById("show_detail_container");
+
+    showDetailsContainer.innerHTML = `
+    <img src=${phone.image} class="mt-8" />
+    <p class = "my-4"><span class="font-bold">Storage: </span>${phone.mainFeatures.storage}</p>
+    <p class = "my-4"><span class="font-bold">Display Size: </span>${phone.mainFeatures.displaySize}</p>
+    <p class = "my-4"><span class="font-bold">Memory: </span>${phone.mainFeatures.memory}</p>
+    <p class = "my-4"><span class="font-bold">Slug: </span>${phone.slug}</p>
+    <p class = "my-4"><span class="font-bold">Release Date: </span>${phone.releaseDate}</p>
+    <p class = "my-4"><span class="font-bold">Brand: </span>${phone.brand}</p>
+    <p class = "my-4"><span class="font-bold">GPS: </span>${phone.others.GPS}</p>
+    `
+
+    show_details_modal.showModal();
+} 
 loadData();
