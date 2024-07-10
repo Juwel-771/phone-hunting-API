@@ -34,8 +34,8 @@ const display = (phones, isShowAll) => {
         <div class="card-body">
             <h2 class="card-title">${phone.phone_name}</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+            <div class="card-actions justify-center">
+                <button onClick = "handleShowDetails()" class="btn btn-primary">Show Details</button>
             </div>
         </div>
         `
@@ -65,6 +65,11 @@ const loadingSpin = (isLoading) => {
 // Show All Button
 const handleShowAll = () => {
     handleSearch(true);
+}
+
+// Show details button
+const handleShowDetails =()=>{
+    console.log("Show button clicked")
 }
 
 loadData();
