@@ -1,47 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phone Hunter</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phone Hunter</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-    <header class="text-center mt-8">
-      <h3 class="text-3xl font-bold">Phone Hunting</h3>
-    </header>    
+  <header class="text-center mt-8">
+    <h3 class="text-3xl font-bold">Phone Hunting</h3>
+  </header>
 
-    <main class="mx-auto mb-9">
-     <!-- search bar -->
-      <section class="bg-neutral-300 p-4 m-4">
-        <input type="text" id="search-field" placeholder="Search Phone" class="input w-full max-w-xs" />
-        <button onclick="handleSearch()" class="btn btn-accent">Search</button>
-      </section>
-       <!-- search result -->
-        <section class="container mx-auto mt-8">
-          <!-- show loading spin -->
-          <div id="load-spin" class="text-center my-40">
-            <span class="loading loading-infinity loading-lg"></span>
-           </div>
-           
-            <div id="phone-container" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              
-            </div>
+  <main class="mx-auto mb-9">
+    <!-- search bar -->
+    <section class="bg-neutral-300 p-4 m-4">
+      <input type="text" id="search-field" placeholder="Search Phone" class="input w-full max-w-xs" />
+      <button onclick="handleSearch()" class="btn btn-accent">Search</button>
+    </section>
+    <!-- search result -->
+    <section class="container mx-auto mt-8">
+      <!-- show loading spin -->
+      <div id="load-spin" class="text-center my-40">
+        <span class="loading loading-infinity loading-lg"></span>
+      </div>
 
-            <div id="show-all_button" class="hidden my-4">
-              <button onclick="handleShowAll()" class="btn btn-primary">Show More</button>
-            </div>
-        </section>
-    </main>
+      <div id="phone-container" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-    <footer>
+      </div>
 
-    </footer>
+      <div id="show-all_button" class="hidden my-4">
+        <button onclick="handleShowAll()" class="btn btn-primary">Show More</button>
+      </div>
+    </section>
+
+    <!-- Show details modal -->
+    <!-- Open the modal using ID.showModal() method -->
+    <button class="btn" onclick="show_details_modal.showModal()">open modal</button>
+    <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <h3 class="text-lg font-bold">Hello!</h3>
+        <p class="py-4">Press ESC key or click the button below to close</p>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <footer>
+
+  </footer>
 
 
 
-    <script src="./js/script.js"></script>
+  <script src="./js/script.js"></script>
 </body>
+
 </html>
